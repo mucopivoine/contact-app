@@ -1,8 +1,11 @@
 
+
 import React, { useState } from 'react';
-import ContactList from './components/contactlist';
-import ContactForm from './components/Contactcard';
+import { BrowserRouter as Router ,Routes , Route} from 'react-router-dom';
 import Header from './components/header';
+import AddContact from './components/AddContact';
+import ContactList from './components/ContactList';
+
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -21,18 +24,20 @@ const App = () => {
     const{name,value } = e.target;
     setUpdatecontacts({...updatecontacts, [name]: value });
    }
-   const handleSubmit = (e) =>{
-    e.preventDefault();
-    toUpdate(updatecontacts);
-   }
+   
   }
   return (
     <div>
-      
-      <Header/>
-      <ContactForm addContact={addContact} />
-      <ContactList contacts={contacts} deleteContact={deleteContact} />
-      {/* <ContactList updateContact={updateContact}/> */}
+    <div className='wholescreen'>
+    <Router>
+     <Routes>
+      <Route path="/" element={<Header />}/>
+      <Route path="/" element={<Homepage />}/>
+      <Route path="/AddContact" element={<AddContact addContact={addContact} />}/>
+      <Route path="/ContactList" element={<ContactList deleteContact={deleteContact} updateContact={updateContact} />}/>
+      </Routes>
+      </Router>
+      </div> 
     </div>
   );
 };
