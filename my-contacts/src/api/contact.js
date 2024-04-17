@@ -23,7 +23,7 @@ export const FetchContactById = (id) => {
         });
 };
 
-export const addContact = (contact) => {
+export const AddingContact = (contact) => {
     return axios.post(`${API}/contact/add`, contact)
         .then((response) => {
             console.log(response.data.message);

@@ -3,10 +3,11 @@ import { IoMdMenu } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import Homepage from './Homepage';
 import { FaUser } from "react-icons/fa6";
+
 function Header() {
   return (
     <div>
-    <div className='lg:w-[1480px] static sm:w-[743px] rounded-md bg-cyan-700 h-15 justify-center items-center flex gap-40'>
+    <div className='lg:w-[1470px] sm:w-[743px] rounded-md bg-cyan-700 h-15 justify-center items-center flex gap-40'>
     <ul>
     <div className="flex p-5 items-center justify-between gap-20">
     <li className='text-3xl font-bold hidden md:block'><h1 className=''>Contact</h1></li>
