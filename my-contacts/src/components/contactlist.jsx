@@ -50,22 +50,24 @@ const ContactList = () => {
   };
 
   return (
-    <div>
+    <div className=' flex flex-col mt-10 gap-5 items-center p-5 container'>
       {message.type === 'error' && (
         <div className="text-red-600">{message.content}</div>
       )}
-      <h1>
-        <span>Name:</span> {contact.fullName}
-      </h1>
-      <p>
-        <span>Phone:</span> {contact.phone}
-      </p>
-      <p>
-        <span>Email:</span> {contact.email}
-      </p>
-      <button onClick={deleteContact} type="button" className="bg-red-200 items-center">
+      <div className=''>
+        <h1 className='text-xl mb-5'><span className='text-2xl'>Name:</span> {contact.fullName}</h1>
+        <p className='text-xl mb-5'><span className=''>Phone:</span> {contact.phone}</p>
+        <p className='text-xl mb-5'><span>Email:</span> {contact.email}</p>
+        
+      </div>
+      <div className=' justify-evenly mr-5'>
+      <button onClick={deleteContact} type="button" className="bg-black items-center w-20 p-2 mr-5 text-white">
         Delete
       </button>
+      <button type='button' className='bg-red-500 items-center w-20 p-2 text-white'> 
+        Update
+       </button>
+      </div>
     </div>
   );
 };

@@ -47,3 +47,15 @@ export const DeleteContact = (id) => {
         });
 };
 
+export const UpdateContact = (id) => {
+    return axios.put(API + '/contact/update?id=' + id)
+    .then((response) => {
+        console.log(response.data.message);
+        alert('update successfull');
+    })
+    .catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}
+

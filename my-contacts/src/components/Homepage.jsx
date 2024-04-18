@@ -24,7 +24,7 @@ const fetchContacts = () => {
   return (
         <div className=''>
       <div className=''>
-        <div className='flex justify-center lg:gap-x-60 md:gap-x-32 mt-10  mb-10 items-center'>
+        <div className='flex justify-center lg:gap-x-60 md:gap-x-32 mt-10  mb-10 items-center sm:gap-20 '>
          <p className='text-xl '>ContactList</p>
          <button className="bg-cyan-600 rounded-md text-white p-4"><a href="/AddContact">Add new</a></button>
         </div>
