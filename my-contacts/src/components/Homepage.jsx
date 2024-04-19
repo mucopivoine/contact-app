@@ -20,7 +20,6 @@ const fetchContacts = () => {
             alert("Fetching contacts failed");
         });
 };
-
   return (
         <div className=''>
       <div className=''>

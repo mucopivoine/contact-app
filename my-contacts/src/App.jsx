@@ -1,10 +1,13 @@
 
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router ,Routes , Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import AddContact from './components/AddContact';
 import ContactList from './components/ContactList';
+import Update from './components/Update';
+import { UpdateContact } from './api/contact';
+
 
 
 const App = () => {
@@ -15,30 +18,30 @@ const App = () => {
   };
 
   const deleteContact = (id) => {
-    const updatedContacts = contacts.filter((contact) => contact.id !== id);
-    setContacts(updatedContacts);
+    const updateContacts = contacts.filter((contact) => contact.id !== id);
+    setContacts(updateContacts);
   };
-  const updateContact = (id) =>{
-   const [updatecontacts, setUpdatecontacts] = useState(contacts);
-   const changeContact = (e) =>{
-    const{name,value } = e.target;
-    setUpdatecontacts({...updatecontacts, [name]: value });
-   }
-   
-  }
+
+  const updateContact = (updateContact) => {
+    const updateContacts = contacts.map((contact) => contact.id === updateContact.id ? updateContact : contact);
+      setContacts(updateContacts);
+    };
+ 
+
   return (
     <div>
-    <div className='wholescreen'>
-    <Router>
-     <Routes>
-      <Route path="/" element={<Header />}/>
-      <Route path="/AddContact" element={<AddContact addContact={addContact} />}/>
-      <Route path="/ContactList/:contactId" element={<ContactList deleteContact={deleteContact} updateContact={updateContact} />}/>
-      </Routes>
-      </Router>
-      </div> 
+      <div className='wholescreen'>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Header />} />
+            <Route path="/AddContact" element={<AddContact addContact={addContact} />} />
+            <Route path="/ContactList/:contactId" element={<ContactList deleteContact={deleteContact} updateContact={updateContact} />} />
+            <Route path="/Update/:contactId" element={<Update/>}/>
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
-};
+}
 
 export default App
