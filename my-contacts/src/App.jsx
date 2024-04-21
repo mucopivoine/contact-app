@@ -10,8 +10,9 @@ import { UpdateContact } from './api/contact';
 
 
 
+
 const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState({});
 
   const addContact = (newContact) => {
     setContacts([...contacts, newContact]);
