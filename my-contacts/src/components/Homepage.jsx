@@ -40,8 +40,8 @@ const Homepage = () => {
   return (
     <div className='container justify-center items-center flex flex-col'>
       <div className=''>
-        <div className='flex justify-center mt-10 mb-10 gap-10 lg:gap-52 items-center md:gap-20  '>
-          <p className='text-xl '>ContactList</p>
+        <div className='flex justify-center mt-10 mb-10 gap-10 lg:gap-48 items-center md:gap-20  '>
+         <input type="text"  name="search " placeholder="Search by name" className='border-2 w-70 p-3 px-7'></input>
           <button className="bg-cyan-600 rounded-md text-white p-4"><Link to="/AddContact">Add new</Link></button>
         </div>
       </div>
