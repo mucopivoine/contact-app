@@ -1,7 +1,8 @@
-
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AddingContact } from '../api/contact';
+
 
 const AddContact = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const AddContact = () => {
     e.preventDefault();
     console.log(contact);
 
-    AddingContact(contact)
+   AddingContact(contact)
       .then((response) => {
         setMessage({
           type: 'success',
@@ -34,7 +35,7 @@ const AddContact = () => {
           phone: '',
           email: '',
         });
-        console.log('set contact')
+        
         setTimeout(() => {
           navigate('/');
         }, 2000)
