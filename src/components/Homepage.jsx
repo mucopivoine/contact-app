@@ -12,7 +12,7 @@ const Homepage = () => {
 
   useEffect(() => {
     fetchContacts();
-  }, []);
+  }, [currentPage, searchTerm]); // Update contacts when currentPage or searchTerm changes
 
   const fetchContacts = () => {
     axios.get('https://contact-app-server-nxgi.onrender.com/api/v1/contactapp/contact/list')
@@ -35,6 +35,7 @@ const Homepage = () => {
 
   const handleSearches = (e) => {
     setSearchTerm(e.target.value);
+    setCurrentPage(1); // Reset currentPage when performing a new search
   };
 
   const filteredContacts = currentContacts.filter((contact) =>
@@ -71,15 +72,16 @@ const Homepage = () => {
         </Table>
       </div>
       <ul className="pagination flex">
-        {Array.from({ length: Math.ceil(filteredContacts.length / contactsPerPage) }).map((_, index) => (
+        {Array.from({ length: Math.ceil(contacts.length / contactsPerPage) }).map((_, index) => (
           <li key={index} className={currentPage === index + 1 ? 'active' : null}>
             <button onClick={() => handlePageChange(index + 1)} className='px-3 py-1'>
               {index + 1}
             </button>
           </li>
         ))}
-      </ul>
+      </ul> 
     </div>
   );
 };
-  export default Homepage;
+
+export default Homepage;

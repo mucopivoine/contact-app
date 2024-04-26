@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AddingContact } from '../api/contact';
@@ -14,7 +13,7 @@ const AddContact = () => {
   const [contact, setContact] = useState({
     fullName: '',
     email: '',
-    phone: '',
+    phone: ''
   });
 
 
@@ -33,7 +32,7 @@ const AddContact = () => {
         setContact({
           fullName: '',
           phone: '',
-          email: '',
+          email: ''
         });
         
         setTimeout(() => {
